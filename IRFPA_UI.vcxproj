@@ -106,7 +106,7 @@
       <ConformanceMode>false</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>d14uikit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;d14uikit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,7 +126,7 @@
       <ConformanceMode>false</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>d14uikit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;d14uikit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,24 +139,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Common.cpp" />
-    <ClCompile Include="TickTimer.cpp" />
-    <ClCompile Include="UICamera.cpp" />
-    <ClCompile Include="UIMain.cpp" />
-    <ClCompile Include="UIParam.cpp" />
-    <ClCompile Include="UISettings.cpp" />
-    <ClCompile Include="UIWindow.cpp" />
-    <ClCompile Include="XDMADevice.cpp" />
+    <ClCompile Include="src\Common.cpp" />
+    <ClCompile Include="src\TickTimer.cpp" />
+    <ClCompile Include="src\UICamera.cpp" />
+    <ClCompile Include="src\UIMain.cpp" />
+    <ClCompile Include="src\UIParam.cpp" />
+    <ClCompile Include="src\UISettings.cpp" />
+    <ClCompile Include="src\UIWindow.cpp" />
+    <ClCompile Include="src\XDMADevice.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Common.h" />
-    <ClInclude Include="TickTimer.h" />
-    <ClInclude Include="UICamera.h" />
-    <ClInclude Include="UIParam.h" />
-    <ClInclude Include="UISettings.h" />
-    <ClInclude Include="UIWindow.h" />
-    <ClInclude Include="XDMADevice.h" />
-    <ClInclude Include="xdma_public.h" />
+    <ClInclude Include="src\Common.h" />
+    <ClInclude Include="src\TickTimer.h" />
+    <ClInclude Include="src\UICamera.h" />
+    <ClInclude Include="src\UIParam.h" />
+    <ClInclude Include="src\UISettings.h" />
+    <ClInclude Include="src\UIWindow.h" />
+    <ClInclude Include="src\XDMADevice.h" />
+    <ClInclude Include="include\xdma_public.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

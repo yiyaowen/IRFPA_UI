@@ -15,54 +15,54 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="UIMain.cpp">
+    <ClCompile Include="src\UIMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="UIWindow.cpp">
+    <ClCompile Include="src\UIWindow.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="UICamera.cpp">
+    <ClCompile Include="src\UICamera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="UIParam.cpp">
+    <ClCompile Include="src\UIParam.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="UISettings.cpp">
+    <ClCompile Include="src\UISettings.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="XDMADevice.cpp">
+    <ClCompile Include="src\XDMADevice.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Common.cpp">
+    <ClCompile Include="src\Common.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="TickTimer.cpp">
+    <ClCompile Include="src\TickTimer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="UIWindow.h">
+    <ClInclude Include="src\UIWindow.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="UICamera.h">
+    <ClInclude Include="src\UICamera.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="UIParam.h">
+    <ClInclude Include="src\UIParam.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="UISettings.h">
+    <ClInclude Include="src\UISettings.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Common.h">
+    <ClInclude Include="src\Common.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XDMADevice.h">
+    <ClInclude Include="src\XDMADevice.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="xdma_public.h">
+    <ClInclude Include="include\xdma_public.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="TickTimer.h">
+    <ClInclude Include="src\TickTimer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
