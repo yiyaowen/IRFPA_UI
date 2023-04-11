@@ -111,7 +111,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>d14uikit\lib_d;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>d14uikit\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DelayLoadDLLs>D14UIKit.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
       <AdditionalDependencies>D14UIKit.lib;setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>

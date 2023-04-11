@@ -4,10 +4,10 @@
 
 int main()
 {
-#ifndef _DEBUG
-    SetDllDirectory(L"d14uikit/lib");
+#ifdef _DEBUG
+    SetDllDirectory(L"d14uikit/lib/debug");
 #else
-    SetDllDirectory(L"d14uikit/lib_d");
+    SetDllDirectory(L"d14uikit/lib/release");
 #endif
     Application app;
     UIWindow window;
