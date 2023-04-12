@@ -55,36 +55,20 @@ public:
             uint16_t DR_NORM_LOW_LEN = 0;
             uint16_t DR_OVER_LOW_LEN = 0;
         }
-        slice16;
+        slice16 = {};
 
-        struct Slice32
-        {
-            uint32_t _0 = 0;
-            uint32_t _1 = 0;
-            uint32_t _2 = 0;
-            uint32_t _3 = 0;
-            uint32_t _4 = 0;
-            uint32_t _5 = 0;
-            uint32_t _6 = 0;
-            uint32_t _7 = 0;
-        }
-        slice32 = {};
+        uint16_t slices[16];
+
+        uint32_t slice32[8];
     };
     Param readParam();
     void writeParam(const Param& param);
 
     union CtrlParam
     {
-        struct Slice8
-        {
-            uint8_t _0 = 0;
-            uint8_t _1 = 0;
-            uint8_t _2 = 0;
-            uint8_t _3 = 0;
-        }
-        slice8;
-
         uint32_t slice32 = 0;
+
+        uint8_t slice8[4];
         
         bool reset_n() const;
         void set_reset_n(bool value);
@@ -111,18 +95,11 @@ public:
 
     void writeCtrlParam(const CtrlParam& param);
 
-    struct StateParam
+    union StateParam
     {
-        struct Slice8
-        {
-            uint8_t _0 = 0;
-            uint8_t _1 = 0;
-            uint8_t _2 = 0;
-            uint8_t _3 = 0;
-        }
-        slice8;
-
         uint32_t slice32 = 0;
+
+        uint8_t slice8[4];
 
         bool read_ready() const;
     };

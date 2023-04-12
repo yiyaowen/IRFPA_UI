@@ -34,11 +34,11 @@ UICamera::UICamera()
     {
         if (name == L"Dark")
         {
-            p->setOutlineColor({ 108, 168, 217 });
+            p->setOutlineColor({ 105, 105, 105 });
         }
         else if (name == L"Light")
         {
-            p->setOutlineColor({ 0, 98, 179 });
+            p->setOutlineColor({ 220, 220, 220 });
         }
     };
     constexpr auto rowNum = 128;
@@ -87,7 +87,13 @@ void UICamera::onUpdate()
 {
     //if (g_xdma->readStateParam().read_ready())
     {
+        //g_xdma->oldCtrlParam.set_write_ready(false);
+        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+
         //g_xdma->readImage(data);
+
+        //g_xdma->oldCtrlParam.set_write_ready(true);
+        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
 
         std::transform(data.begin(), data.end(), image.begin(),
         [](uint16_t elem)

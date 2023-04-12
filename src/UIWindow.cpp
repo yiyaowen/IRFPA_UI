@@ -53,6 +53,7 @@ UIWindow::UIWindow()
     };
     ui_tabParam = std::make_shared<UIParam>();
     ui_tg->appendTab({ ui_capParam.get(), ui_tabParam.get() });
+    ui_tabParam->initialize();
 
     ui_capSettings = std::make_shared<TabCaption>();
     ui_capSettings->setClosable(false);

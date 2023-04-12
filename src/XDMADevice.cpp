@@ -9,6 +9,7 @@
 
 XDMADevice::XDMADevice()
 {
+    return;
     //=========================================== Query XDMA device base path.
     HDEVINFO devInfo = SetupDiGetClassDevs(
         &GUID_DEVINTERFACE_XDMA,
@@ -270,107 +271,96 @@ size_t XDMADevice::regNumToAddrOffset(size_t num)
 XDMADevice::Param XDMADevice::readParam()
 {
     Param param = {};
-    param.slice32 =
+    for (size_t i = 0; i < 8; ++i)
     {
-        readRegsiter(10),
-        readRegsiter(11),
-        readRegsiter(12),
-        readRegsiter(13),
-        readRegsiter(14),
-        readRegsiter(15),
-        readRegsiter(16),
-        readRegsiter(17)
-    };
+        param.slice32[i] = readRegsiter(10 + i);
+    }
     return param;
 }
 
 void XDMADevice::writeParam(const Param& param)
 {
-    writeRegister(2, param.slice32._0);
-    writeRegister(3, param.slice32._1);
-    writeRegister(4, param.slice32._2);
-    writeRegister(5, param.slice32._3);
-    writeRegister(6, param.slice32._4);
-    writeRegister(7, param.slice32._5);
-    writeRegister(8, param.slice32._6);
-    writeRegister(9, param.slice32._7);
+    for (size_t i = 0; i < 8; ++i)
+    {
+        writeRegister(i + 2, param.slice32[i]);
+    }
 }
 
 bool XDMADevice::CtrlParam::reset_n() const
 {
-    return slice8._0 & 0x01;
+    return slice8[0] & 0x01;
 }
 
 void XDMADevice::CtrlParam::set_reset_n(bool value)
 {
-    if (value) slice8._0 |= 0x01;
-    else slice8._0 &= (~0x01);
+    if (value) slice8[0] |= 0x01;
+    else slice8[0] &= (~0x01);
 }
 
 bool XDMADevice::CtrlParam::param_reset_n() const
 {
-    return slice8._0 & 0x02;
+    return slice8[0] & 0x02;
 }
 
 void XDMADevice::CtrlParam::set_param_reset_n(bool value)
 {
-    if (value) slice8._0 |= 0x02;
-    else slice8._0 &= (~0x02);
+    if (value) slice8[0] |= 0x02;
+    else slice8[0] &= (~0x02);
 }
 
 bool XDMADevice::CtrlParam::use_def() const
 {
-    return slice8._0 & 0x04;
+    return slice8[0] & 0x04;
 }
 
 void XDMADevice::CtrlParam::set_use_def(bool value)
 {
-    if (value) slice8._0 |= 0x04;
-    else slice8._0 &= (~0x04);
+    if (value) slice8[0] |= 0x04;
+    else slice8[0] &= (~0x04);
 }
 
 bool XDMADevice::CtrlParam::writein() const
 {
-    return slice8._0 & 0x08;
+    return slice8[0] & 0x08;
 }
 
 void XDMADevice::CtrlParam::set_writein(bool value)
 {
-    if (value) slice8._0 |= 0x08;
-    else slice8._0 &= (~0x08);
+    if (value) slice8[0] |= 0x08;
+    else slice8[0] &= (~0x08);
 }
 
 bool XDMADevice::CtrlParam::readout() const
 {
-    return slice8._0 & 0x10;
+    return slice8[0] & 0x10;
 }
 
 void XDMADevice::CtrlParam::set_readout(bool value)
 {
-    if (value) slice8._0 |= 0x10;
-    else slice8._0 &= (~0x10);
+    if (value) slice8[0] |= 0x10;
+    else slice8[0] &= (~0x10);
 }
 
 bool XDMADevice::CtrlParam::test_mode() const
 {
-    return slice8._0 & 0x20;
+    return slice8[0] & 0x20;
 }
 
 void XDMADevice::CtrlParam::set_test_mode(bool value)
 {
-    if (value) slice8._0 |= 0x20;
-    else slice8._0 &= (~0x20);
+    if (value) slice8[0] |= 0x20;
+    else slice8[0] &= (~0x20);
 }
 
 bool XDMADevice::CtrlParam::write_ready() const
 {
-    return slice8._0 & 0x40;
+    return slice8[0] & 0x40;
 }
 
 void XDMADevice::CtrlParam::set_write_ready(bool value)
 {
-    if (value) slice8._0 |= 0x40;
-    else slice8._0 &= (~0x40);
+    if (value) slice8[0] |= 0x40;
+    else slice8[0] &= (~0x40);
 }
 
 void XDMADevice::writeCtrlParam(const CtrlParam& param)
@@ -381,7 +371,7 @@ void XDMADevice::writeCtrlParam(const CtrlParam& param)
 
 bool XDMADevice::StateParam::read_ready() const
 {
-    return slice8._0 & 0x01;
+    return slice8[0] & 0x01;
 }
 
 XDMADevice::StateParam XDMADevice::readStateParam()
