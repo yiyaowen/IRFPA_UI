@@ -127,9 +127,11 @@ void UIParam::initialize()
     ui_reset_n->setText(L"reset_n");
     ui_reset_n->D14_onStateChange(ToggleButton, obj, state)
     {
+#ifdef IRFPA_UI_PCIE
         bool value = (state == ToggleButton::Activated);
-        //g_xdma->oldCtrlParam.set_reset_n(value);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+        g_xdma->oldCtrlParam.set_reset_n(value);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
     };
     ui_param_reset_n = std::make_shared<ToggleButton>();
     info = {};
@@ -144,8 +146,10 @@ void UIParam::initialize()
         ui_use_def->setEnabled(value);
         ui_writein->setEnabled(value);
         ui_readout->setEnabled(value);
-        //g_xdma->oldCtrlParam.set_param_reset_n(value);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#ifdef IRFPA_UI_PCIE
+        g_xdma->oldCtrlParam.set_param_reset_n(value);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
     };
     ui_use_def = std::make_shared<FilledButton>();
     ui_use_def->setEnabled(false);
@@ -157,13 +161,17 @@ void UIParam::initialize()
     ui_use_def->setText(L"use_def");
     ui_use_def->D14_onMouseButtonPress(clkp, e)
     {
-        //g_xdma->oldCtrlParam.set_use_def(true);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#ifdef IRFPA_UI_PCIE
+        g_xdma->oldCtrlParam.set_use_def(true);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
     };
     ui_use_def->D14_onMouseButtonRelease(clkp, e)
     {
-        //g_xdma->oldCtrlParam.set_use_def(false);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#ifdef IRFPA_UI_PCIE
+        g_xdma->oldCtrlParam.set_use_def(false);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
     };
     ui_writein = std::make_shared<FilledButton>();
     ui_writein->setEnabled(false);
@@ -175,14 +183,18 @@ void UIParam::initialize()
     ui_writein->setText(L"writein");
     ui_writein->D14_onMouseButtonPress(clkp, e, this)
     {
-        //g_xdma->writeParam(textToParam(ui_paramInInput->text()));
-        //g_xdma->oldCtrlParam.set_writein(true);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#ifdef IRFPA_UI_PCIE
+        g_xdma->writeParam(textToParam(ui_paramInInput->text()));
+        g_xdma->oldCtrlParam.set_writein(true);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
     };
     ui_writein->D14_onMouseButtonRelease(clkp, e)
     {
-        //g_xdma->oldCtrlParam.set_writein(false);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#ifdef IRFPA_UI_PCIE
+        g_xdma->oldCtrlParam.set_writein(false);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
     };
     ui_readout = std::make_shared<FilledButton>();
     ui_readout->setEnabled(false);
@@ -195,14 +207,18 @@ void UIParam::initialize()
     ui_readout->setText(L"readout");
     ui_readout->D14_onMouseButtonPress(clkp, e)
     {
-        //g_xdma->oldCtrlParam.set_readout(true);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#ifdef IRFPA_UI_PCIE
+        g_xdma->oldCtrlParam.set_readout(true);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
     };
     ui_readout->D14_onMouseButtonRelease(clkp, e, this)
     {
-        //ui_paramOutInput->setText(paramToText(g_xdma->readParam()));
-        //g_xdma->oldCtrlParam.set_readout(false);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#ifdef IRFPA_UI_PCIE
+        ui_paramOutInput->setText(paramToText(g_xdma->readParam()));
+        g_xdma->oldCtrlParam.set_readout(false);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
     };
 
     ui_paramTable = std::make_shared<GridLayout>();

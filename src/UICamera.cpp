@@ -71,30 +71,35 @@ UICamera::UICamera()
     };
     ui_testMode->D14_onStateChange(ToggleButton, obj, state)
     {
-        //if (state == ToggleButton::Activated)
-        //{
-        //    g_xdma->oldCtrlParam.set_test_mode(true);
-        //}
-        //else if (state == ToggleButton::Deactivated)
-        //{
-        //    g_xdma->oldCtrlParam.set_test_mode(false);
-        //}
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#ifdef IRFPA_UI_PCIE
+        if (state == ToggleButton::Activated)
+        {
+            g_xdma->oldCtrlParam.set_test_mode(true);
+        }
+        else if (state == ToggleButton::Deactivated)
+        {
+            g_xdma->oldCtrlParam.set_test_mode(false);
+        }
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
     };
 }
 
 void UICamera::onUpdate()
 {
-    //if (g_xdma->readStateParam().read_ready())
+#ifdef IRFPA_UI_PCIE
+    if (g_xdma->readStateParam().read_ready())
+#endif
     {
-        //g_xdma->oldCtrlParam.set_write_ready(false);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#ifdef IRFPA_UI_PCIE
+        g_xdma->oldCtrlParam.set_write_ready(false);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
 
-        //g_xdma->readImage(data);
+        g_xdma->readImage(data);
 
-        //g_xdma->oldCtrlParam.set_write_ready(true);
-        //g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
-
+        g_xdma->oldCtrlParam.set_write_ready(true);
+        g_xdma->writeCtrlParam(g_xdma->oldCtrlParam);
+#endif
         std::transform(data.begin(), data.end(), image.begin(),
         [](uint16_t elem)
         {

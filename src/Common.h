@@ -23,3 +23,5 @@ extern std::unique_ptr<TickTimer> g_timer;
 
 class XDMADevice;
 extern std::unique_ptr<XDMADevice> g_xdma;
+
+//#define IRFPA_UI_PCIE

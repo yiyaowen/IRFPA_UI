@@ -9,7 +9,6 @@
 
 XDMADevice::XDMADevice()
 {
-    return;
     //=========================================== Query XDMA device base path.
     HDEVINFO devInfo = SetupDiGetClassDevs(
         &GUID_DEVINTERFACE_XDMA,
@@ -74,8 +73,7 @@ XDMADevice::XDMADevice()
                 MB_ICONERROR);
             exit(-1);
         }
-        basePath.resize(lstrlen(pDevDetail->DevicePath));
-        basePath.copy(pDevDetail->DevicePath, basePath.size());
+        basePath = pDevDetail->DevicePath;
     }
     SetupDiDestroyDeviceInfoList(devInfo);
 
