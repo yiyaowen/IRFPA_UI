@@ -91,3 +91,11 @@ void UIWindow::onChangeLangLocale(const std::wstring& name)
         setTitle(L"IRFPA_UI @ 红外成像芯片测试系统");
     }
 }
+
+void UIWindow::onKeyboard(KeyboardEvent* event)
+{
+    if (event->vkey() == 'P' && event->ctrl() && event->alt())
+    {
+        Application::app()->capture()->save(L"screenshot.png");
+    }
+}

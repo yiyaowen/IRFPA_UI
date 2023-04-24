@@ -22,4 +22,6 @@ private:
 
 protected:
     void onChangeLangLocale(const std::wstring& name) override;
+
+    void onKeyboard(KeyboardEvent* event) override;
 };
