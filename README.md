@@ -1,8 +1,10 @@
 # IRPFA_UI
 
-PC app for IRFPA test system. The UI part depends on D14UIKit (https://github.com/yiyaowen/D14UIKit), so you need to prepare the C++ wrapper at the project root directory before getting started. Since D14UIKit project is still under developing, it is recommended to use **version 0.1** (i.e. **d14uikit_cpp_v0_1**) in case of unexpected interface changes.
+PC app for IRFPA test system. The UI part depends on D14UIKit (still under development).
 
-Download the latest **d14uikit_cpp_v0_1.zip** and extract it into **d14uikit** subdirectory:
+## Prepare
+
+Download ``d14uikit_cpp_v0_1.zip`` from https://github.com/yiyaowen/D14UIKit and extract it into ``d14uikit`` subdirectory (created by yourself):
 
 * d14uikit
   * include
@@ -14,4 +16,6 @@ Download the latest **d14uikit_cpp_v0_1.zip** and extract it into **d14uikit** s
 * src
 * Other project files in IRFPA_UI
 
-After the environment is setup, simply select **Debug / Release (x64)** to build the application.
+## Usage
+
+There's a global macro ``IRFPA_UI_PCIE`` in the ``src/Common.h`` header, which is commented out by default and thus the app doesn't create the XDMA device for PCIe communication (only UI). If you have done with the PCIe works, simply enable the macro to use the complete test system.
