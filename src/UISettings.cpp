@@ -81,8 +81,8 @@ UISettings::UISettings()
         ui_lightModeItem.get(),
         ui_useSystemThemeItem.get()
     });
-    ui_themeSelector->setCurrSelected(1);
-    ui_themeSelector->setText(L"Light");
+    ui_themeSelector->setCurrSelected(2);
+    ui_themeSelector->setText(L"Use system setting");
     ui_themeSelector->D14_onSelectedChange(ComboBox, obj, text)
     {
         auto app = Application::app();

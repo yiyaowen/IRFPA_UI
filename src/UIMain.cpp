@@ -12,7 +12,6 @@ int main()
     Application app;
     UIWindow window;
     app.setLowEnergy(false);
-    app.setThemeMode(L"Light");
     app.setLangLocale(L"en-us");
     app.setBmpQualityInterp(true);
     return app.run();
